@@ -1,6 +1,11 @@
 "use client";
 
-import { IconLockOpen, IconLogin2 } from "@tabler/icons-react";
+import {
+  IconLockOpen,
+  IconLogin2,
+  IconEye,
+  IconEyeOff,
+} from "@tabler/icons-react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -8,12 +13,29 @@ import React, { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 
 export default function forgotPassword() {
-  const [oldPassword, setOldPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [token, setToken] = useState("");
   const [processing, setProcessing] = useState(false);
+  const [areFieldsEmpty, setAreFieldsEmpty] = useState(true);
   const router = useRouter();
+  const [isPasswordVisible, setPasswordVisible] = useState("");
+  const [isPasswordVisible2, setPasswordVisible2] = useState("");
+
+  useEffect(() => {
+    if (newPassword.length > 0 && confirmNewPassword.length > 0) {
+      setAreFieldsEmpty(false);
+    } else {
+      setAreFieldsEmpty(true);
+    }
+  }, [newPassword, confirmNewPassword]);
   const onChangePassword = async () => {
+    if (newPassword !== confirmNewPassword) {
+      setNewPassword("");
+      setConfirmNewPassword("");
+      toast.error("Password does not match");
+      return;
+    }
     try {
       setProcessing(true);
       if (token.length == 0) {
@@ -21,7 +43,6 @@ export default function forgotPassword() {
       }
       const response = await axios.post("/api/users/forgotpassword", {
         token,
-        oldPassword,
         newPassword,
       });
       if (response.data.error) {
@@ -52,27 +73,72 @@ export default function forgotPassword() {
         </h1>
       </div>
       <div className="flex flex-col items-center justify-center py-2 text-2xl gap-3">
-        <label htmlFor="oldPassword">Old Password</label>
-        <input
-          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
-          type="password"
-          value={oldPassword}
-          onChange={(e) => setOldPassword(e.target.value)}
-          placeholder="old password"
-        />
         <label htmlFor="newPassword">New Password</label>
-        <input
-          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
-          type="password"
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-          placeholder="new password"
-        />
+
+        <div className="flex gap-2 mb-4 relative">
+          <input
+            className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
+            type={isPasswordVisible ? "text" : "password"}
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+            placeholder="New Password"
+            id="newPassword"
+          />
+          <button
+            onClick={() => setPasswordVisible(!isPasswordVisible)}
+            className="cursor-pointer absolute inset-y-0 left-[88%] right-0"
+          >
+            {isPasswordVisible ? (
+              <IconEyeOff
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            ) : (
+              <IconEye
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            )}
+          </button>
+        </div>
+        <label htmlFor="confirmNewPassword">Confirm New Password</label>
+
+        <div className="flex gap-2 mb-4 relative">
+          <input
+            className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
+            type={isPasswordVisible2 ? "text" : "password"}
+            value={confirmNewPassword}
+            onChange={(e) => setConfirmNewPassword(e.target.value)}
+            placeholder="Confirm New password"
+            id="confirmNewPassword"
+          />
+          <button
+            onClick={() => setPasswordVisible2(!isPasswordVisible2)}
+            className="cursor-pointer absolute inset-y-0 left-[88%] right-0"
+          >
+            {isPasswordVisible2 ? (
+              <IconEyeOff
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            ) : (
+              <IconEye
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            )}
+          </button>
+        </div>
         <div className="flex flex-col items-center justify-between py-2 text-2xl min-h-[calc(100vh-470px)]">
           <button
             type="button"
             className="flex gap-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-4 mb-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 transition duration-200"
             onClick={onChangePassword}
+            disabled={areFieldsEmpty ? true : false}
           >
             <IconLockOpen size={25} />
             Change Password

@@ -7,7 +7,7 @@ connectDB();
 
 export async function POST(request) {
   try {
-    const { token, oldPassword, newPassword } = await request.json();
+    const { token, newPassword } = await request.json();
     const user = await User.findOne({
       forgotPasswordToken: decodeURIComponent(token),
       forgotPasswordTokenExpiry: { $gt: Date.now() },
@@ -15,13 +15,6 @@ export async function POST(request) {
 
     if (!user) {
       return NextResponse.json({ error: "User does not exist", status: 400 });
-    }
-
-    if (!await bcrypt.compare(oldPassword, user.password)) {
-      return NextResponse.json({
-        error: "Old password is incorrect",
-        status: 400,
-      });
     }
 
     const salt = await bcrypt.genSalt(10);
