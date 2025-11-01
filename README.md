@@ -10,7 +10,6 @@ A Full Stack App that works as an Auth System.
 - Can be integrated with other apps.
 - Passwords can be reset.
 - Account has to be verified before logging in for the first time.
-- Deployed on Vercel.
 
 ## 🛠️ Tech Stack
 
