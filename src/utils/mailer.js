@@ -17,7 +17,7 @@ const sendEmail = async ({ email, emailType, userId }) => {
 
     var transport = nodemailer.createTransport({
       host: process.env.MAILTRAP_HOST,
-      port: 587,
+      port: process.env.MAILTRAP_PORT,
       auth: {
         user: process.env.MAILTRAP_USERNAME,
         pass: process.env.MAILTRAP_PASSWORD,
