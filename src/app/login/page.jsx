@@ -4,6 +4,8 @@ import {
   IconLogin2,
   IconKey,
   IconHome,
+  IconEyeOff,
+  IconEye,
 } from "@tabler/icons-react";
 
 import axios from "axios";
@@ -20,6 +22,7 @@ export default function Login() {
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
   const [loading, setLoading] = useState(false);
+  const [isPasswordVisible, setPasswordVisible] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -84,13 +87,33 @@ export default function Login() {
           placeholder="username"
         />
         <label htmlFor="password">Password</label>
-        <input
-          className="p-2 border border-gray-300 rounded-lg mb-4 focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
-          type="password"
-          value={user.password}
-          onChange={(e) => setUser({ ...user, password: e.target.value })}
-          placeholder="password"
-        />
+        <div className="flex gap-2 mb-4 relative">
+          <input
+            className="p-2 border border-gray-300 rounded-lg focus:outline-none focus:border-gray-600 bg-white placeholder-gray-400 text-black"
+            type={isPasswordVisible ? "text" : "password"}
+            value={user.password}
+            onChange={(e) => setUser({ ...user, password: e.target.value })}
+            placeholder="password"
+          />
+          <button
+            onClick={() => setPasswordVisible(!isPasswordVisible)}
+            className="cursor-pointer absolute inset-y-0 left-[88%] right-0"
+          >
+            {isPasswordVisible ? (
+              <IconEyeOff
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            ) : (
+              <IconEye
+                size={30}
+                color="black"
+                className="opacity-60 hover:opacity-100 transition duration-200"
+              />
+            )}
+          </button>
+        </div>
         <button
           type="button"
           className=" flex justify-center items-center gap-2 text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-2 mb-16 dark:bg-purple-700 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-purple-900 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50"
