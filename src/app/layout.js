@@ -25,10 +25,18 @@ export default function RootLayout({ children }) {
       >
         <Toaster
           position="top-right"
-          toastOptions={{ duration: 5000, style: { fontSize: "20px" } }}
+          toastOptions={{
+            duration: 5000,
+            style: {
+              fontSize: "20px",
+              background: "black",
+              color: "white",
+              border: "1px solid white",
+              borderRadius: "10px",
+            },
+          }}
         />
         {children}
-        
       </body>
     </html>
   );

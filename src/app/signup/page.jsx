@@ -124,7 +124,7 @@ export default function Signup() {
         </div>
         <button
           type="button"
-          className=" flex gap-2 items-center justify-center text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-2 mb-10 dark:bg-purple-700 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-purple-900 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50"
+          className=" flex gap-2 items-center justify-center text-white bg-purple-600 hover:bg-purple-700 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-2 mb-10 dark:bg-purple-700 dark:hover:bg-purple-800 focus:outline-none dark:focus:ring-purple-900 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 transition duration-200"
           onClick={onSignup}
           disabled={buttonDisabled}
         >
@@ -132,7 +132,7 @@ export default function Signup() {
           Signup Now
         </button>
         <Link
-          className="flex gap-2 items-center justify-center  text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 dark:bg-pink-700 mb-2 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-pink-900 cursor-pointer w-full text-center"
+          className="flex gap-2 items-center justify-center  text-white bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 dark:bg-pink-700 mb-2 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-pink-900 cursor-pointer w-full text-center transition duration-200"
           href="/login"
         >
           <IconLogin2 size={25} />
@@ -140,7 +140,7 @@ export default function Signup() {
         </Link>
         <button
           type="button"
-          className="text-white flex gap-2 items-center justify-center bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 mb-4 dark:bg-pink-700 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-pink-900 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50"
+          className="text-white flex gap-2 items-center justify-center bg-pink-600 hover:bg-pink-700 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 mb-4 dark:bg-pink-700 dark:hover:bg-pink-800 focus:outline-none dark:focus:ring-pink-900 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 transition duration-200"
           onClick={onHome}
         >
           <IconHome size={25} />

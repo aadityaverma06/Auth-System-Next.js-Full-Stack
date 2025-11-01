@@ -71,17 +71,17 @@ export default function forgotPassword() {
         <div className="flex flex-col items-center justify-between py-2 text-2xl min-h-[calc(100vh-470px)]">
           <button
             type="button"
-            className="flex gap-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-4 mb-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50"
+            className="flex gap-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mt-4 mb-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer w-full disabled:cursor-not-allowed disabled:opacity-50 transition duration-200"
             onClick={onChangePassword}
           >
-            <IconLockOpen size={25}/>
+            <IconLockOpen size={25} />
             Change Password
           </button>
           <Link
-            className="flex gap-2 items-center     justify-center text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 dark:bg-pink-600 dark:hover:bg-pink-700 focus:outline-none dark:focus:ring-pink-800 cursor-pointer w-full text-center"
+            className="flex gap-2 items-center     justify-center text-white bg-pink-700 hover:bg-pink-800 focus:ring-4 focus:ring-pink-300 font-medium rounded-lg px-3 py-1.5 dark:bg-pink-600 dark:hover:bg-pink-700 focus:outline-none dark:focus:ring-pink-800 cursor-pointer w-full text-center transition duration-200"
             href="/login"
           >
-            <IconLogin2 size={25}/>
+            <IconLogin2 size={25} />
             Login
           </Link>
         </div>

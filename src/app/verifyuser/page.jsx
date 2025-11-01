@@ -53,10 +53,10 @@ export default function verifyUser() {
         />
       </div>
       <button
-        className="text-2xl flex gap-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mb-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer w-max disabled:cursor-not-allowed disabled:opacity-50"
+        className="text-2xl flex gap-2 items-center justify-center text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg px-3 py-1.5 mb-4 dark:bg-purple-600 dark:hover:bg-purple-700 focus:outline-none dark:focus:ring-purple-800 cursor-pointer w-max disabled:cursor-not-allowed disabled:opacity-50 transition duration-200"
         onClick={onVerifyUser}
       >
-       <IconMailCheck size={25}/>
+        <IconMailCheck size={25} />
         Verify
       </button>
     </div>
