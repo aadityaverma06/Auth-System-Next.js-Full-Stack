@@ -47,8 +47,7 @@ export default function Login() {
       console.log(error);
     } finally {
       setLoading(false);
-      user.username = "";
-      user.password = "";
+     setUser({ username: "", password: "" });
     }
   };
 

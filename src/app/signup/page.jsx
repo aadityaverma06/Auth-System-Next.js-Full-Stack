@@ -53,9 +53,7 @@ export default function Signup() {
       toast.error(error.response.data.error);
     } finally {
       setLoading(false);
-      user.username = "";
-      user.email = "";
-      user.password = "";
+      setUser({ username: "", email: "", password: "" });
     }
   };
 
