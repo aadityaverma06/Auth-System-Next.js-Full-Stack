@@ -7,14 +7,14 @@ export default function Home() {
     <div className="flex flex-col min-h-screen p-5 xs:p-10 font-[family-name:var(--font-geist-sans)] justify-center items-center gap-8">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-center max-w-sm">
         <div className="flex flex-col gap-[32px] row-start-2 items-center justify-center sm:mb-10 pl-4">
-          <h1 className="text-4xl font-extrabold text-gray-900 dark:text-white md:text-5xl lg:text-6xl text-left mb-8 sm:mb-0">
+          <h1 className="text-5xl font-extrabold text-gray-900 dark:text-white lg:text-6xl text-left mb-8 sm:mb-0">
             <span className="text-transparent bg-clip-text bg-gradient-to-r to-pink-500 from-purple-700">
               Welcome to Auth System
             </span>
           </h1>
         </div>
 
-        <ol className="list-outside list-disc text-base/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)] mb-8 pl-6">
+        <ol className="list-outside list-disc text-base/6 text-left font-[family-name:var(--font-geist-mono)] mb-8 pl-6">
           <li className="mb-2 tracking-[-.01em]">
             Get started by logging into your account.
           </li>
