@@ -29,6 +29,6 @@ A Full Stack App that works as an Auth System.
 npm run dev
 ```
 
-### 🌐 Using Render Link
+### 🌐 Using Vercel Link
 
-https://auth-system-next-js-full-stack.onrender.com/
+https://auth-system-next-js-full-stack.vercel.app/
